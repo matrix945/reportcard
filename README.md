@@ -13,8 +13,18 @@
 6) Separate file based on Moodle Role Based Control System
 7) Fix shell commend for ubuntu
 8) Enhance query Currently, using student email
+9) Fix some UI ([[reportcard]][[nav_name]])
+10) ??? action_page.php page need AJAX or find a way to pass all string to another php page
 
-# Instal
-1) install pdftk
+# Install
+1) install pdftk first
 2) Move the folder under /moodle/local
 3) Refresh moodle home page the installation will pop up
+4) Create the pdf temeplete file *.fdf first in the target location `pdftk temeplete.pdf generate_fdf output data.fdf`
+
+# how to use?
+1) Login as admin
+2) Site administration -> Plugins tab -> [[nav_name]]
+3) Input a student email
+4) select student term grades
+5) click submit button
