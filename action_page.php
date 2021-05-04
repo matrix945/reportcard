@@ -194,7 +194,7 @@ function htmlCheckBoxMaker($userid , $data){
     $singleCourseData= array();
 
     $CourseNumber =  count($data);
-    $checkBoxHtml = '<form action="/moodle/local/reportcard/action_page.php" method="post"> Student Course List:<br />';
+    $checkBoxHtml = '<form action="/local/reportcard/action_page.php" method="post"> Student Course List:<br />';
     $htmlid= 0;
     for ($x = 0; $x < $CourseNumber;$x++) {
         $fullCourseGradeList = fetchCourseGradeBasedOnCourseId($userid,$data[$x]['id']);
