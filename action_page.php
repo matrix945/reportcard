@@ -40,7 +40,7 @@ echo "query email: " . $_POST["email"];
 define('TOKEN' , "40dfe254a5767e45bd5f2a7973837f92");
 define('URL' , "https://test.cia-online.cn/webservice/rest/server.php?moodlewsrestformat=json");
 define('FDFLOCATION' , $CFG->dirroot.'/local/reportcard/data.fdf' );  // fdf file location
-define('GENERATEFDFLOCATION' , $CFG->dirroot.'/local/reportcard/repo' );  // fdf file location
+define('GENERATEFDFLOCATION' , $CFG->dirroot.'/local/reportcard/repo/' );  // fdf file location
 define('shell_command' , '');   // pdftk shell command
 
 function apiCall($url , $post_data) {
