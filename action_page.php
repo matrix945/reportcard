@@ -437,7 +437,7 @@ if(isset($_POST['formDoor'])) {
         fwrite($myfile, $filetext);
         fclose($myfile);
 
-        $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $myfile . ' output /var/www/html/moodle/local/reportcard/repo/form_with_data.pdf';
+        $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $filename . ' output /var/www/html/moodle/local/reportcard/repo/form_with_data.pdf';
         echo $command;
         $msg = shell_exec($command);
         print_r($msg);
