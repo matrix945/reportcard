@@ -37,14 +37,11 @@ $email = $_POST["email"];
 echo "query email: " . $_POST["email"];
 
 
-echo 'hello?';
-
-
-
-
-
 define('TOKEN' , "40dfe254a5767e45bd5f2a7973837f92");
 define('URL' , "https://test.cia-online.cn/webservice/rest/server.php?moodlewsrestformat=json");
+define('FDFLOCATION' , $CFG->dirroot.'/local/reportcard/data.fdf' );  // fdf file location
+define('GENERATEFDFLOCATION' , $CFG->dirroot.'/local/reportcard/repo' );  // fdf file location
+define('shell_command' , '');   // pdftk shell command
 
 function apiCall($url , $post_data) {
 //    $url = "https://test.cia-online.cn/webservice/rest/server.php?moodlewsrestformat=json";
@@ -361,7 +358,7 @@ if(isset($_POST['formDoor'])) {
     }
     else
     {
-        $filename = "C:\\Users\\Matrix\\Desktop\\kj\\xa-php7.4\\htdocs\\moodle\\local\\data.fdf";
+        $filename = FDFLOCATION;
         $file = fopen( $filename, "r" );
 
         if( $file == false ) {
@@ -434,18 +431,15 @@ if(isset($_POST['formDoor'])) {
 
 
 //      WARNING: You can;t use fullname here because fullname may contain space! It causes issue when you pass it to shell
-        $filename = 'C:\Users\Matrix\Desktop\kj\xa-php7.4\htdocs\moodle\local\\' .$obj[0]->{'email'} . '.data.fdf' ;
-//        $filename = 'C:\Users\Matrix\Desktop\kj\xa-php7.4\htdocs\moodle\local\'' .$obj[0]->{'fullname'} . '.data.fdf' ;
+        $filename = GENERATEFDFLOCATION .$obj[0]->{'email'} . '.data.fdf' ;
         echo $filename;
         $myfile = fopen($filename, "w") or die("Unable to open file!");
         fwrite($myfile, $filetext);
         fclose($myfile);
-//
-        $msg = shell_exec('pdftk C:\Users\Matrix\Desktop\kj\xa-php7.4\htdocs\moodle\local\report_card_template.pdf fill_form ' . $filename .' output C:\Users\Matrix\Desktop\kj\xa-php7.4\htdocs\moodle\local\form_with_data.pdf 2>&1');
+
+        $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $myfile . 'output /var/www/html/moodle/local/reportcard/repo/form_with_data.pdf';
+        $msg = shell_exec($command);
         print_r($msg);
-
-
-
 
     }
 } else {
@@ -455,30 +449,10 @@ if(isset($_POST['formDoor'])) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//windoes style
+//windoes ! windoes shell need 2>&1 at the end
+//$msg = shell_exec('pdftk C:\Users\Matrix\Desktop\kj\xa-php7.4\htdocs\moodle\local\report_card_template.pdf fill_form ' . $filename .' output C:\Users\Matrix\Desktop\kj\xa-php7.4\htdocs\moodle\local\form_with_data.pdf 2>&1');
 //$msg = shell_exec('pdftk C:\Users\Matrix\Desktop\kj\xa-php7.4\htdocs\moodle\local\report_card_template.pdf fill_form C:\Users\Matrix\Desktop\kj\xa-php7.4\htdocs\moodle\local\data.fdf output C:\Users\Matrix\Desktop\kj\xa-php7.4\htdocs\moodle\local\form_with_data.pdf 2>&1');
 //print_r($msg);
-
-//echo $OUTPUT->footer();
-
 
 
 ?>
