@@ -414,7 +414,7 @@ if(isset($_POST['formDoor'])) {
              *
              */
 
-            if(count($finalInsertData[$i]) == 15){
+            if(count($finalInsertData[$i]) == 8){
                 echo "YOU HIT ME";
                 $filetext = str_replace( ("/V ()". chr(10)."/T (CourseCode" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][0].")". chr(10)."/T (CourseCode" . ($i+1) . ")")),$filetext);
                 $filetext = str_replace( ("/V ()". chr(10)."/T (MidMarkMed" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][1].")". chr(10)."/T (MidMarkMed" . ($i+1) . ")")),$filetext);
