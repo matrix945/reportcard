@@ -1,0 +1,740 @@
+%FDF-1.2
+%忏嫌
+1 0 obj 
+<<
+/FDF 
+<<
+/Fields [
+<<
+/V ()
+/T (CourseCode5)
+>> 
+<<
+/V ()
+/T (CourseCode4)
+>> 
+<<
+/V ()
+/T (CourseCode3)
+>> 
+<<
+/V ()
+/T (CourseCode2)
+>> 
+<<
+/V ()
+/T (CourseCode1)
+>> 
+<<
+/V (1415 Woodroffe Ave, Nepean, ON K2G 1V9)
+/T (SchoolAddress)
+>> 
+<<
+/V ()
+/T (FinInd6)
+>> 
+<<
+/V ()
+/T (FinInd5)
+>> 
+<<
+/V ()
+/T (FinInd4)
+>> 
+<<
+/V ()
+/T (FinInd3)
+>> 
+<<
+/V ()
+/T (FinInd2)
+>> 
+<<
+/V ()
+/T (FinInd1)
+>> 
+<<
+/V ()
+/T (FinOrg6)
+>> 
+<<
+/V ()
+/T (FinOrg5)
+>> 
+<<
+/V (Sheileen Krone)
+/T (StudentNameP1)
+>> 
+<<
+/V ()
+/T (FinOrg4)
+>> 
+<<
+/V ()
+/T (StudentNameP2)
+>> 
+<<
+/V ()
+/T (FinOrg3)
+>> 
+<<
+/V ()
+/T (FinOrg2)
+>> 
+<<
+/V (N/A)
+/T (FinClaMis1)
+>> 
+<<
+/V ()
+/T (FinOrg1)
+>> 
+<<
+/V (N/A)
+/T (FinClaMis2)
+>> 
+<<
+/V ()
+/T (FinClaMis3)
+>> 
+<<
+/V ()
+/T (MidRes1)
+>> 
+<<
+/V ()
+/T (FinClaMis4)
+>> 
+<<
+/V ()
+/T (MidRes2)
+>> 
+<<
+/V ()
+/T (FinClaMis5)
+>> 
+<<
+/V ()
+/T (MidRes3)
+>> 
+<<
+/V ()
+/T (FinClaMis6)
+>> 
+<<
+/V ()
+/T (MidRes4)
+>> 
+<<
+/V ()
+/T (MidRes5)
+>> 
+<<
+/V ()
+/T (MidRes6)
+>> 
+<<
+/V ()
+/T (GradeP2)
+>> 
+<<
+/V ()
+/T (GradeP1)
+>> 
+<<
+/V (Private)
+/T (BoardType)
+>> 
+<<
+/V ()
+/T (FinSel6)
+>> 
+<<
+/V ()
+/T (FinSel5)
+>> 
+<<
+/V ()
+/T (FinSel4)
+>> 
+<<
+/V ()
+/T (FinSel3)
+>> 
+<<
+/V ()
+/T (FinSel2)
+>> 
+<<
+/V ()
+/T (FinSel1)
+>> 
+<<
+/V ()
+/T (CourseTitle6)
+>> 
+<<
+/V ()
+/T (CourseTitle5)
+>> 
+<<
+/V ()
+/T (CourseTitle4)
+>> 
+<<
+/V ()
+/T (CourseTitle3)
+>> 
+<<
+/V ()
+/T (CourseTitle2)
+>> 
+<<
+/V ()
+/T (CourseTitle1)
+>> 
+<<
+/V ()
+/T (FinMarkMed1)
+>> 
+<<
+/V ()
+/T (FinMarkMed2)
+>> 
+<<
+/V ()
+/T (FinMarkMed3)
+>> 
+<<
+/V ()
+/T (FinMarkMed4)
+>> 
+<<
+/V ()
+/T (FinMarkMed5)
+>> 
+<<
+/V ()
+/T (FinMarkMed6)
+>> 
+<<
+/V ()
+/T (ReportPeriodP2)
+>> 
+<<
+/V ()
+/T (ReportPeriodP1)
+>> 
+<<
+/V ()
+/T (MidSel1)
+>> 
+<<
+/V ()
+/T (MidSel2)
+>> 
+<<
+/V ()
+/T (MidSel3)
+>> 
+<<
+/V ()
+/T (SemesterP1)
+>> 
+<<
+/V ()
+/T (MidSel4)
+>> 
+<<
+/V ()
+/T (SemesterP2)
+>> 
+<<
+/V ()
+/T (MidSel5)
+>> 
+<<
+/V ()
+/T (MidSel6)
+>> 
+<<
+/V ()
+/T (MidTimesLate1)
+>> 
+<<
+/V ()
+/T (MidTimesLate2)
+>> 
+<<
+/V ()
+/T (MidTimesLate3)
+>> 
+<<
+/V ()
+/T (MidTimesLate4)
+>> 
+<<
+/V ()
+/T (MidTimesLate5)
+>> 
+<<
+/V ()
+/T (MidTimesLate6)
+>> 
+<<
+/V ()
+/T (FinRes6)
+>> 
+<<
+/V ()
+/T (FinRes5)
+>> 
+<<
+/V ()
+/T (FinRes4)
+>> 
+<<
+/V ()
+/T (FinRes3)
+>> 
+<<
+/V ()
+/T (OENP2)
+>> 
+<<
+/V ()
+/T (FinRes2)
+>> 
+<<
+/V (000-000-000)
+/T (OENP1)
+>> 
+<<
+/V ()
+/T (FinRes1)
+>> 
+<<
+/V ()
+/T (MidOrg1)
+>> 
+<<
+/V ()
+/T (MidOrg2)
+>> 
+<<
+/V ()
+/T (FinTimesLate6)
+>> 
+<<
+/V ()
+/T (MidOrg3)
+>> 
+<<
+/V ()
+/T (FinTimesLate5)
+>> 
+<<
+/V ()
+/T (MidOrg4)
+>> 
+<<
+/V ()
+/T (FinTimesLate4)
+>> 
+<<
+/V ()
+/T (MidOrg5)
+>> 
+<<
+/V ()
+/T (FinTimesLate3)
+>> 
+<<
+/V ()
+/T (MidOrg6)
+>> 
+<<
+/V ()
+/T (FinTimesLate2)
+>> 
+<<
+/V ()
+/T (FinTimesLate1)
+>> 
+<<
+/V ()
+/T (MidInd1)
+>> 
+<<
+/V ()
+/T (MidInd2)
+>> 
+<<
+/V ()
+/T (MidInd3)
+>> 
+<<
+/V ()
+/T (MidInd4)
+>> 
+<<
+/V ()
+/T (MidInd5)
+>> 
+<<
+/V ()
+/T (MidInd6)
+>> 
+<<
+/V (613-701-0626)
+/T (SchoolFax)
+>> 
+<<
+/V ()
+/T (MidPerMark6)
+>> 
+<<
+/V ()
+/T (MidPerMark5)
+>> 
+<<
+/V ()
+/T (FinCouCre1)
+>> 
+<<
+/V ()
+/T (MidPerMark4)
+>> 
+<<
+/V ()
+/T (FinCouCre2)
+>> 
+<<
+/V ()
+/T (MidPerMark3)
+>> 
+<<
+/V ()
+/T (FinCouCre3)
+>> 
+<<
+/V ()
+/T (MidPerMark2)
+>> 
+<<
+/V ()
+/T (FinCouCre4)
+>> 
+<<
+/V ()
+/T (CourseComment6)
+>> 
+<<
+/V ()
+/T (MidPerMark1)
+>> 
+<<
+/V ()
+/T (FinCouCre5)
+>> 
+<<
+/V ()
+/T (CourseComment5)
+>> 
+<<
+/V ()
+/T (MidTotCla1)
+>> 
+<<
+/V ()
+/T (FinCouCre6)
+>> 
+<<
+/V ()
+/T (CourseComment4)
+>> 
+<<
+/V ()
+/T (MidTotCla2)
+>> 
+<<
+/V ()
+/T (CourseComment3)
+>> 
+<<
+/V ()
+/T (MidTotCla3)
+>> 
+<<
+/V ()
+/T (CourseComment2)
+>> 
+<<
+/V ()
+/T (MidTotCla4)
+>> 
+<<
+/V ()
+/T (CourseComment1)
+>> 
+<<
+/V ()
+/T (MidTotCla5)
+>> 
+<<
+/V ()
+/T (MidTotCla6)
+>> 
+<<
+/V ()
+/T (FinCol6)
+>> 
+<<
+/V ()
+/T (FinCol5)
+>> 
+<<
+/V ()
+/T (ReportDateP2)
+>> 
+<<
+/V ()
+/T (FinCol4)
+>> 
+<<
+/V ()
+/T (ReportDateP1)
+>> 
+<<
+/V ()
+/T (FinCol3)
+>> 
+<<
+/V ()
+/T (FinCol2)
+>> 
+<<
+/V ()
+/T (FinCol1)
+>> 
+<<
+/V ()
+/T (FinIni6)
+>> 
+<<
+/V ()
+/T (FinIni5)
+>> 
+<<
+/V ()
+/T (FinIni4)
+>> 
+<<
+/V ()
+/T (FinIni3)
+>> 
+<<
+/V ()
+/T (FinIni2)
+>> 
+<<
+/V ()
+/T (FinIni1)
+>> 
+<<
+/V (Chongchuan District, Nantong City, Jiangsu Province,China)
+/T (StudentAddress)
+>> 
+<<
+/V ()
+/T (MidClaMis6)
+>> 
+<<
+/V ()
+/T (MidClaMis5)
+>> 
+<<
+/V ()
+/T (MidClaMis4)
+>> 
+<<
+/V ()
+/T (MidClaMis3)
+>> 
+<<
+/V ()
+/T (MidClaMis2)
+>> 
+<<
+/V ()
+/T (MidClaMis1)
+>> 
+<<
+/V ()
+/T (FinPerMark1)
+>> 
+<<
+/V ()
+/T (FinPerMark2)
+>> 
+<<
+/V ()
+/T (FinPerMark3)
+>> 
+<<
+/V ()
+/T (FinPerMark4)
+>> 
+<<
+/V ()
+/T (FinPerMark5)
+>> 
+<<
+/V ()
+/T (FinPerMark6)
+>> 
+<<
+/V ()
+/T (MidIni1)
+>> 
+<<
+/V ()
+/T (MidIni2)
+>> 
+<<
+/V ()
+/T (MidIni3)
+>> 
+<<
+/V ()
+/T (MidIni4)
+>> 
+<<
+/V ()
+/T (MidIni5)
+>> 
+<<
+/V ()
+/T (MidIni6)
+>> 
+<<
+/V ()
+/T (FinTotCla6)
+>> 
+<<
+/V ()
+/T (FinTotCla5)
+>> 
+<<
+/V ()
+/T (FinTotCla4)
+>> 
+<<
+/V ()
+/T (FinTotCla3)
+>> 
+<<
+/V ()
+/T (FinTotCla2)
+>> 
+<<
+/V ()
+/T (FinTotCla1)
+>> 
+<<
+/V ()
+/T (MidCol1)
+>> 
+<<
+/V ()
+/T (MidCol2)
+>> 
+<<
+/V ()
+/T (MidCol3)
+>> 
+<<
+/V ()
+/T (MidCol4)
+>> 
+<<
+/V ()
+/T (MidCol5)
+>> 
+<<
+/V ()
+/T (MidCol6)
+>> 
+<<
+/V ()
+/T (MidMarkMed1)
+>> 
+<<
+/V ()
+/T (MidMarkMed2)
+>> 
+<<
+/V ()
+/T (MidMarkMed3)
+>> 
+<<
+/V ()
+/T (MidMarkMed4)
+>> 
+<<
+/V ()
+/T (MidMarkMed5)
+>> 
+<<
+/V ()
+/T (MidMarkMed6)
+>> 
+<<
+/V (Capital International Academy)
+/T (SchoolName)
+>> 
+<<
+/V (613-262-0868)
+/T (SchoolPhone)
+>> 
+<<
+/V ()
+/T (CourseTeacher6)
+>> 
+<<
+/V ()
+/T (Principal)
+>> 
+<<
+/V ()
+/T (CourseTeacher5)
+>> 
+<<
+/V ()
+/T (CourseTeacher4)
+>> 
+<<
+/V ()
+/T (CourseTeacher3)
+>> 
+<<
+/V ()
+/T (CourseTeacher2)
+>> 
+<<
+/V ()
+/T (CourseTeacher1)
+>> 
+<<
+/V ()
+/T (CourseCode6)
+>>]
+>>
+>>
+endobj 
+trailer
+
+<<
+/Root 1 0 R
+>>
+%%EOF
