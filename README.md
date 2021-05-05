@@ -19,8 +19,10 @@
 # Install
 1) install pdftk first[install guide link] (https://linuxhint.com/install_pdftk_ubuntu/) [install issue link in case] (https://askubuntu.com/questions/1028522/how-can-i-install-pdftk-in-ubuntu-18-04-and-later)
 2) Test sever `pdftk`
-..* install from git -> `git clone`
-..* Move the folder under /moodle/local
+
+  * Install from git -> `git clone` this repo
+  * Move the folder under /moodle/local
+
 3) change all folder to www-data `sudo chown -R www-data:www-data /var/www/html/moodle/local/reportcard/`
 4) Refresh moodle home page the installation will pop up
 5) Create the pdf temeplete file *.fdf first in the target location `pdftk temeplete.pdf generate_fdf output data.fdf`
