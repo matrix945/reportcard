@@ -29,8 +29,7 @@ $PAGE->set_context(\context_system::instance());
 $PAGE->set_title('reportcard');
 require_once($CFG->libdir.'/adminlib.php');
 
-
-
+//manage admin Authority
 admin_externalpage_setup('reportcard_conn_synch_settings');
 
 
@@ -48,9 +47,6 @@ $templatecontext = (object)[
 ];
 
 echo $OUTPUT->render_from_template('local_reportcard/reportcard', $templatecontext);
-
-
-
 
 
 echo $OUTPUT->footer();

@@ -43,6 +43,15 @@ define('FDFLOCATION' , $CFG->dirroot.'/local/reportcard/data.fdf' );  // fdf fil
 define('GENERATEFDFLOCATION' , $CFG->dirroot.'/local/reportcard/repo/' );  // fdf file location
 define('shell_command' , '');   // pdftk shell command
 
+
+/**
+ * Main apiCall cuntion
+ * @param $url: api url
+ * @param $post_data: data input for restfull call
+ * detail see moodle document.
+ */
+
+
 function apiCall($url , $post_data) {
 //    $url = "https://test.cia-online.cn/webservice/rest/server.php?moodlewsrestformat=json";
 //    $post_data = array ("userid" => 56,"wsfunction" => "gradereport_overview_get_course_grades","wstoken"=>"41e8c6e5dfef059325a25c1d275b166b");
@@ -111,32 +120,6 @@ function parseGetEnrolledCourseByStuId($data) {
 }
 
 
-//function parseCourseArrayIntoCheckBoxForm($data) {
-////    echo  var_dump($data);
-//    $CourseNumber =  count($data);
-//    $checkBoxHtml = '<form  method="post">
-//
-//Student Course List:<br />';
-//
-//
-//    for ($x = 0; $x < $CourseNumber;$x++) {
-//
-//        $checkBoxHtml = $checkBoxHtml . '<input type="checkbox" name="formDoor[]" value=" '.  $data[$x]['id'] .
-//            '" />' . $data[$x]['id']. '<br />';
-//    }
-//    $checkBoxHtml = $checkBoxHtml . '<input type="submit" name="formSubmit" value="Submit" />
-//
-//</form>';
-//
-//
-//
-//
-//    echo $checkBoxHtml;
-//
-//
-//}
-
-
 function fetchCourseGradeBasedOnCourseId($userid,$courseId){
     $post_data = array ("wsfunction" => "gradereport_user_get_grade_items","wstoken"=>TOKEN,"userid"=>$userid,"courseid"=>$courseId);
 
@@ -186,7 +169,11 @@ function parseStudentGrade($data){
     return $gradeList;
 }
 
-
+/**
+ * @function: produce the checkbox html
+ * @param $userid: student moodle id
+ * @param $data: student course list
+ */
 
 function htmlCheckBoxMaker($userid , $data){
 
@@ -200,7 +187,7 @@ function htmlCheckBoxMaker($userid , $data){
         $fullCourseGradeList = fetchCourseGradeBasedOnCourseId($userid,$data[$x]['id']);
         $courseGradeList = parseStudentGrade($fullCourseGradeList);
 
-//        TODO: HOTFIX is not needed
+//
 //        if(count($courseGradeList) != 14){
 //            $courseGradeList = [100, "midterm comments ", "E", "E", "E", "E", "99","finial comment", "E", "E", "E", "E", "E", "E"];
 //        }
@@ -230,6 +217,7 @@ function htmlCheckBoxMaker($userid , $data){
 //
 //        }
 
+//      TODO: HOTFIX why? release this block if all moodle courses contain 14 fields
         if(count($courseGradeList) != 14){
             $courseGradeList = [100, "midterm comments ", "E", "E", "E", "E", "99","finial comment", "E", "E", "E", "E", "E", "E"];
         }
@@ -238,6 +226,8 @@ function htmlCheckBoxMaker($userid , $data){
 //            .$courseGradeList[4] .' '.$courseGradeList[5] .' '.$courseGradeList[6] . $courseGradeList[7] . ' '. ' '.$courseGradeList[8] .' '.$courseGradeList[9] .' '.$courseGradeList[10].' '
 //            .$courseGradeList[11] .' '.$courseGradeList[12] .' '.$courseGradeList[13];
 
+
+//      Mid-term
         $singleCourseData= array();
         array_push($singleCourseData,$data[$x]['code']);
         array_push($singleCourseData,$courseGradeList[0]);
@@ -249,6 +239,8 @@ function htmlCheckBoxMaker($userid , $data){
         array_push($singleCourseData,$courseGradeList[6]);
         array_push($courseIDWithGardesList ,$singleCourseData );
 
+
+//      Final-term
         $singleCourseData = array();
         array_push($singleCourseData,$data[$x]['code']);
         array_push($singleCourseData,$courseGradeList[7]);
@@ -260,6 +252,7 @@ function htmlCheckBoxMaker($userid , $data){
         array_push($singleCourseData,$courseGradeList[13]);
         array_push($courseIDWithGardesList ,$singleCourseData );
 
+//      Full year
         $singleCourseData= array();
         array_push($singleCourseData,$data[$x]['code']);
         array_push($singleCourseData,$courseGradeList[0]);
@@ -279,6 +272,7 @@ function htmlCheckBoxMaker($userid , $data){
         array_push($courseIDWithGardesList ,$singleCourseData );
 
 
+//      This student has final grades
         if ($courseGradeList[7] != '-'){
             $checkBoxHtml = $checkBoxHtml . '<input type="checkbox" name="formDoor[]" value="' .  $htmlid.
                 '" />' . 'midterm'. $courseGradeList[0] . ' '. ' '.$courseGradeList[1] .' '.$courseGradeList[2] .' '.$courseGradeList[3].' '
@@ -299,7 +293,8 @@ function htmlCheckBoxMaker($userid , $data){
             $htmlid = $htmlid + 1;
 
         }
-//        TODO: seems no need
+
+//
 //        else {
 //            $checkBoxHtml = $checkBoxHtml . '<input type="checkbox" name="formDoor[]" value="'.  'mid'.$data[$x]['id']  .
 //                '" />' . 'midterm'. $courseGradeList[0] . ' '. ' '.$courseGradeList[1] .' '.$courseGradeList[2] .' '.$courseGradeList[3].' '
@@ -320,14 +315,17 @@ function htmlCheckBoxMaker($userid , $data){
 
 }
 
-
-// This is kind of main!
 ?>
 
 <?php
 
+
+/**
+ * MAIN Function
+ */
+
+
 $studentId = -1;
-//echo "????????????????" . $email;
 $data =  validateUserEmail(URL,"2121373869@qq.com");
 //echo $data;
 $obj = json_decode($data);
@@ -349,7 +347,11 @@ parseStudentGrade($courseGradeList);
 $courseIDWithGardesList =  htmlCheckBoxMaker(39,$courseList);
 $finalInsertData = array();
 
+/**
+ * MAIN Function
+ */
 
+// If the checkbox is selected and submitted
 if(isset($_POST['formDoor'])) {
     $aDoor = $_POST['formDoor'];
     if(empty($aDoor))
@@ -368,13 +370,11 @@ if(isset($_POST['formDoor'])) {
 
         $filesize = filesize( $filename );
         $filetext = fread( $file, $filesize );
-        echo "?????????????";
 //            echo ( "File size : $filesize bytes" );
 //            echo ( "<pre>$filetext</pre>" );
         echo  $filetext;
         fclose( $file );
         echo ("</br>");
-
 
         $N = count($aDoor);
 
@@ -390,9 +390,7 @@ if(isset($_POST['formDoor'])) {
             var_dump($finalInsertData);
 
 
-
-
-            /*
+            /**
              *     array (size=15)
                       0 => string 'MHF4U' (length=5)
                       1 => int 88

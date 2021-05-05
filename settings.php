@@ -16,11 +16,7 @@
 
 /**
  * Plugin administration pages are defined here.
- *
- * @package     local_privatefilemanager
- * @category    admin
- * @copyright   2018 Abhishek Karadbhuje <abhishek.karadbhuje@wisdmlabs.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Most of code is copied from edwiserbeidge
  */
 
 defined('MOODLE_INTERNAL') || die();
