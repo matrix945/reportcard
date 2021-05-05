@@ -17,10 +17,17 @@
 10) ??? action_page.php page need AJAX or find a way to pass all string to another php page
 
 # Install
-1) install pdftk first
-2) Move the folder under /moodle/local
-3) Refresh moodle home page the installation will pop up
-4) Create the pdf temeplete file *.fdf first in the target location `pdftk temeplete.pdf generate_fdf output data.fdf`
+1) install pdftk first[install guide link] (https://linuxhint.com/install_pdftk_ubuntu/) [install issue link in case] (https://askubuntu.com/questions/1028522/how-can-i-install-pdftk-in-ubuntu-18-04-and-later)
+2) Test sever `pdftk`
+..* install from git -> `git clone`
+..* Move the folder under /moodle/local
+3) change all folder to www-data `sudo chown -R www-data:www-data /var/www/html/moodle/local/reportcard/`
+4) Refresh moodle home page the installation will pop up
+5) Create the pdf temeplete file *.fdf first in the target location `pdftk temeplete.pdf generate_fdf output data.fdf`
+
+OR
+3) Download the zip package from git
+4) drop it to Plugin installer `/admin/tool/installaddon/index.php`
 
 # how to use?
 1) Login as admin
