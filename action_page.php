@@ -388,6 +388,8 @@ if(isset($_POST['formDoor'])) {
 
             array_push($finalInsertData,$courseIDWithGardesList[intval($aDoor[$i])]);
 //            echo($aDoor[$i] . " ");
+            echo ("finalInsertData");
+            echo('<br>');
             var_dump($finalInsertData);
             echo('<br>');
 
