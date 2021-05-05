@@ -379,6 +379,7 @@ if(isset($_POST['formDoor'])) {
         $N = count($aDoor);
 
         echo("You selected $N door(s): ");
+        echo('<br>');
 //        print_r($aDoor);
 
 //        var_dump($courseIDWithGardesList);
@@ -388,6 +389,7 @@ if(isset($_POST['formDoor'])) {
             array_push($finalInsertData,$courseIDWithGardesList[intval($aDoor[$i])]);
 //            echo($aDoor[$i] . " ");
             var_dump($finalInsertData);
+            echo('<br>');
 
 
             /**
@@ -425,7 +427,9 @@ if(isset($_POST['formDoor'])) {
 
 
         }
+        echo('<br>');
         echo $filetext;
+        echo('<br>');
 
 
 //      WARNING: You can;t use fullname here because fullname may contain space! It causes issue when you pass it to shell
