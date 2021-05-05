@@ -48,7 +48,7 @@ define('URL' , "https://test.cia-online.cn/webservice/rest/server.php?moodlewsre
 define('FDFLOCATION' , $CFG->dirroot.'/local/reportcard/data.fdf' );  // fdf file location
 define('GENERATEFDFLOCATION' , $CFG->dirroot.'/local/reportcard/repo/' );  // fdf file location
 define('SHELL_COMMAND' , '');   // pdftk shell command for future use
-define('DEBUG' , false); //debug mode
+define('DEBUG' , true); //debug mode
 
 
 /**
@@ -120,7 +120,7 @@ function parseGetEnrolledCourseByStuId($data) {
 
     }
 
-    echo "student enrolled courses list: \n";
+    if(DEBUG){echo "student enrolled courses list: \n";}
     if(DEBUG){var_dump($courseList);}
 
     return $courseList;
@@ -395,7 +395,7 @@ if(isset($_POST['formDoor'])) {
 
             array_push($finalInsertData,$courseIDWithGardesList[intval($aDoor[$i])]);
 //           echo($aDoor[$i] . " ");
-            echo ("finalInsertData");
+            if(DEBUG){echo ("finalInsertData");}
             echo('<br>');
             if(DEBUG){var_dump($finalInsertData);}
             echo('<br>');
@@ -422,7 +422,7 @@ if(isset($_POST['formDoor'])) {
              */
 
             if(count($finalInsertData[$i]) == 8){
-                echo "YOU HIT ME";
+                if(DEBUG){echo "Replace fdf file now!";}
                 $filetext = str_replace( ("/V ()". chr(10)."/T (CourseCode" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][0].")". chr(10)."/T (CourseCode" . ($i+1) . ")")),$filetext);
                 $filetext = str_replace( ("/V ()". chr(10)."/T (MidMarkMed" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][1].")". chr(10)."/T (MidMarkMed" . ($i+1) . ")")),$filetext);
                 $filetext = str_replace( ("/V ()". chr(10)."/T (MidRes" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][3].")". chr(10)."/T (MidRes" . ($i+1) . ")")),$filetext);
