@@ -37,11 +37,18 @@ $email = $_POST["email"];
 echo "query email: " . $_POST["email"];
 
 
+/**
+ *
+ *  Pre-define constant
+ *
+ */
+
 define('TOKEN' , "40dfe254a5767e45bd5f2a7973837f92");
 define('URL' , "https://test.cia-online.cn/webservice/rest/server.php?moodlewsrestformat=json");
 define('FDFLOCATION' , $CFG->dirroot.'/local/reportcard/data.fdf' );  // fdf file location
 define('GENERATEFDFLOCATION' , $CFG->dirroot.'/local/reportcard/repo/' );  // fdf file location
-define('shell_command' , '');   // pdftk shell command
+define('SHELL_COMMAND' , '');   // pdftk shell command for future use
+define('DEBUG' , false); //debug mode
 
 
 /**
@@ -114,7 +121,7 @@ function parseGetEnrolledCourseByStuId($data) {
     }
 
     echo "student enrolled courses list: \n";
-    var_dump($courseList);
+    if(DEBUG){var_dump($courseList);}
 
     return $courseList;
 }
@@ -329,7 +336,7 @@ $studentId = -1;
 $data =  validateUserEmail(URL,"2121373869@qq.com");
 //echo $data;
 $obj = json_decode($data);
-var_dump($obj);
+if(DEBUG){var_dump($obj);}
 //echo $obj[0]->{"id"};
 if (checkErrorOrEmpty($obj)){
     $studentId = $obj[0]-> {'id'};
@@ -372,13 +379,13 @@ if(isset($_POST['formDoor'])) {
         $filetext = fread( $file, $filesize );
 //            echo ( "File size : $filesize bytes" );
 //            echo ( "<pre>$filetext</pre>" );
-        echo  $filetext;
+        if(DEBUG){var_dump($filetext);}
         fclose( $file );
         echo ("</br>");
 
         $N = count($aDoor);
 
-        echo("You selected $N door(s): ");
+        if(DEBUG){echo("You selected $N choice (s): ");}
         echo('<br>');
 //        print_r($aDoor);
 
@@ -387,10 +394,10 @@ if(isset($_POST['formDoor'])) {
         {
 
             array_push($finalInsertData,$courseIDWithGardesList[intval($aDoor[$i])]);
-//            echo($aDoor[$i] . " ");
+//           echo($aDoor[$i] . " ");
             echo ("finalInsertData");
             echo('<br>');
-            var_dump($finalInsertData);
+            if(DEBUG){var_dump($finalInsertData);}
             echo('<br>');
 
 
@@ -430,19 +437,21 @@ if(isset($_POST['formDoor'])) {
 
         }
         echo('<br>');
-        echo $filetext;
+        if(DEBUG){var_dump($filetext);}
         echo('<br>');
 
 
 //      WARNING: You can;t use fullname here because fullname may contain space! It causes issue when you pass it to shell
         $filename = GENERATEFDFLOCATION .$obj[0]->{'email'} . '.data.fdf' ;
-        echo $filename;
+        echo('<br>');
+        if(DEBUG){var_dump($filename);}
+        echo('<br>');
         $myfile = fopen($filename, "w") or die("Unable to open file!");
         fwrite($myfile, $filetext);
         fclose($myfile);
 
         $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $filename . ' output /var/www/html/moodle/local/reportcard/repo/form_with_data.pdf';
-        echo $command;
+        if(DEBUG){echo $command;}
         $msg = shell_exec($command);
         print_r($msg);
 
