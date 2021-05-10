@@ -35,11 +35,9 @@ $roles = get_user_roles($context, $USER->id, true);
 
 
 echo $OUTPUT->header();
-echo $_SESSION["favcolor"];
 var_dump($_SESSION["insetdata"]);
+print_r($_SESSION["insetdata"])
 
-
-var_dump($_GET[$_SESSION["insetdata"][0][0]]);
 
 $parameter = $_GET['courses'];
 print_r($parameter) ;
@@ -48,11 +46,6 @@ $orderedInsertData = $_SESSION["insetdata"];
 
 $orderedInsertData = array_combine($parameter , $orderedInsertData );
 var_dump($orderedInsertData);
-
-
-
-
-$str = "coursess=1&coursess=0";
 
 
 

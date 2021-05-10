@@ -396,6 +396,7 @@ if(isset($_POST['formDoor'])) {
         for($i=0; $i < $N; $i++) {
 
             array_push($finalInsertData2, $courseIDWithGardesList[intval($aDoor[$i])]);
+            $_SESSION["insetdata"] = $finalInsertData2;
             echo "<br>";
             echo "<br>";
             var_dump($courseIDWithGardesList[intval($aDoor[$i])]) ;
@@ -418,7 +419,7 @@ if(isset($_POST['formDoor'])) {
         $htmlSort = $htmlSort . '<input type="submit" value="Submit">
 </form>';
 
-        $_SESSION["insetdata"] = $finalInsertData2;
+
 
         echo $htmlSort;
 
