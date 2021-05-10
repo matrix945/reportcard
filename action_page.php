@@ -389,74 +389,108 @@ if(isset($_POST['formDoor'])) {
 
         if(DEBUG){echo("You selected $N choice (s): ");}
         echo('<br>');
+
+        $htmlSort =  '<h1>The select element</h1>
+<p>Please rank your item.</p>
+<form action="/local/reportcard/sort_page.php">';
+        for($i=0; $i < $N; $i++) {
+
+            array_push($finalInsertData2, $courseIDWithGardesList[intval($aDoor[$i])]);
+            echo "<br>";
+            echo "<br>";
+            var_dump($courseIDWithGardesList[intval($aDoor[$i])]) ;
+            echo "<br>";
+
+//            echo $htmlSort;
+
+            $singleBlock = ' <label for="'. $courseIDWithGardesList[intval($aDoor[$i])][0].'">'. $courseIDWithGardesList[intval($aDoor[$i])][0] .'</label>
+  <select name="'. 'courses[]' .'"id="courses">';
+
+            for($k=0; $k < $N; $k++) {
+                $singleBlock = $singleBlock . '<option value="' . $k .'">'.$k.'</option>';
+            }
+            $singleBlock = $singleBlock. '  </select>
+  <br><br>';
+
+            $htmlSort = $htmlSort . $singleBlock;
+
+        }
+        $htmlSort = $htmlSort . '<input type="submit" value="Submit">
+</form>';
+
+        $_SESSION["insetdata"] = $finalInsertData2;
+
+        echo $htmlSort;
+
+
 //        print_r($aDoor);
 
 //        var_dump($courseIDWithGardesList);
-        for($i=0; $i < $N; $i++)
-        {
-
-            array_push($finalInsertData,$courseIDWithGardesList[intval($aDoor[$i])]);
-//           echo($aDoor[$i] . " ");
-            if(DEBUG){echo ("finalInsertData");}
-            echo('<br>');
-            if(DEBUG){var_dump($finalInsertData);}
-            echo('<br>');
-
-            $_SESSION["insetData"] = $finalInsertData;
-
-            /**
-             *     array (size=15)
-            0 => string 'MHF4U' (length=5)
-            1 => int 88
-            2 => string 'woqu' (length=4)
-            3 => string 'G' (length=1)
-            4 => string 'N' (length=1)
-            5 => string 'S' (length=1)
-            6 => string 'G' (length=1)
-            7 => string 'G' (length=1)
-            8 => int 40
-            9 => string 'paodekuaipaodekuai' (length=18)
-            10 => string 'G' (length=1)
-            11 => string 'G' (length=1)
-            12 => string 'S' (length=1)
-            13 => string 'N' (length=1)
-            14 => string '-' (length=1)
-             *
-             */
-
-            if(count($finalInsertData[$i]) == 8){
-                if(DEBUG){echo "Replace fdf file now!";}
-                $filetext = str_replace( ("/V ()". chr(10)."/T (CourseCode" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][0].")". chr(10)."/T (CourseCode" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidMarkMed" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][1].")". chr(10)."/T (MidMarkMed" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidRes" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][3].")". chr(10)."/T (MidRes" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidOrg" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][4].")". chr(10)."/T (MidOrg" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidInd" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][5].")". chr(10)."/T (MidInd" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidCol" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][6].")". chr(10)."/T (MidCol" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidIni" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][7].")". chr(10)."/T (MidIni" . ($i+1) . ")")),$filetext);
-
-            }
-
-
-
-        }
-        echo('<br>');
-        if(DEBUG){var_dump($filetext);}
-        echo('<br>');
-
-
-//      WARNING: You can;t use fullname here because fullname may contain space! It causes issue when you pass it to shell
-        $filename = GENERATEFDFLOCATION .$obj[0]->{'email'} . '.data.fdf' ;
-        echo('<br>');
-        if(DEBUG){var_dump($filename);}
-        echo('<br>');
-        $myfile = fopen($filename, "w") or die("Unable to open file!");
-        fwrite($myfile, $filetext);
-        fclose($myfile);
-
-        $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $filename . ' output /var/www/html/moodle/local/reportcard/repo/form_with_data.pdf';
-        if(DEBUG){echo $command;}
-        $msg = shell_exec($command);
-        print_r($msg);
+//        for($i=0; $i < $N; $i++)
+//        {
+//
+//            array_push($finalInsertData,$courseIDWithGardesList[intval($aDoor[$i])]);
+////           echo($aDoor[$i] . " ");
+//            if(DEBUG){echo ("finalInsertData");}
+//            echo('<br>');
+//            if(DEBUG){var_dump($finalInsertData);}
+//            echo('<br>');
+//
+//            $_SESSION["insetData"] = $finalInsertData;
+//
+//            /**
+//             *     array (size=15)
+//            0 => string 'MHF4U' (length=5)
+//            1 => int 88
+//            2 => string 'woqu' (length=4)
+//            3 => string 'G' (length=1)
+//            4 => string 'N' (length=1)
+//            5 => string 'S' (length=1)
+//            6 => string 'G' (length=1)
+//            7 => string 'G' (length=1)
+//            8 => int 40
+//            9 => string 'paodekuaipaodekuai' (length=18)
+//            10 => string 'G' (length=1)
+//            11 => string 'G' (length=1)
+//            12 => string 'S' (length=1)
+//            13 => string 'N' (length=1)
+//            14 => string '-' (length=1)
+//             *
+//             */
+//
+//            if(count($finalInsertData[$i]) == 8){
+//                if(DEBUG){echo "Replace fdf file now!";}
+//                $filetext = str_replace( ("/V ()". chr(10)."/T (CourseCode" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][0].")". chr(10)."/T (CourseCode" . ($i+1) . ")")),$filetext);
+//                $filetext = str_replace( ("/V ()". chr(10)."/T (MidMarkMed" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][1].")". chr(10)."/T (MidMarkMed" . ($i+1) . ")")),$filetext);
+//                $filetext = str_replace( ("/V ()". chr(10)."/T (MidRes" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][3].")". chr(10)."/T (MidRes" . ($i+1) . ")")),$filetext);
+//                $filetext = str_replace( ("/V ()". chr(10)."/T (MidOrg" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][4].")". chr(10)."/T (MidOrg" . ($i+1) . ")")),$filetext);
+//                $filetext = str_replace( ("/V ()". chr(10)."/T (MidInd" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][5].")". chr(10)."/T (MidInd" . ($i+1) . ")")),$filetext);
+//                $filetext = str_replace( ("/V ()". chr(10)."/T (MidCol" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][6].")". chr(10)."/T (MidCol" . ($i+1) . ")")),$filetext);
+//                $filetext = str_replace( ("/V ()". chr(10)."/T (MidIni" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][7].")". chr(10)."/T (MidIni" . ($i+1) . ")")),$filetext);
+//
+//            }
+//
+//
+//
+//        }
+//        echo('<br>');
+//        if(DEBUG){var_dump($filetext);}
+//        echo('<br>');
+//
+//
+////      WARNING: You can;t use fullname here because fullname may contain space! It causes issue when you pass it to shell
+//        $filename = GENERATEFDFLOCATION .$obj[0]->{'email'} . '.data.fdf' ;
+//        echo('<br>');
+//        if(DEBUG){var_dump($filename);}
+//        echo('<br>');
+//        $myfile = fopen($filename, "w") or die("Unable to open file!");
+//        fwrite($myfile, $filetext);
+//        fclose($myfile);
+//
+//        $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $filename . ' output /var/www/html/moodle/local/reportcard/repo/form_with_data.pdf';
+//        if(DEBUG){echo $command;}
+//        $msg = shell_exec($command);
+//        print_r($msg);
 
     }
 } else {
