@@ -283,7 +283,7 @@ function htmlCheckBoxMaker($userid , $data){
         if ($courseGradeList[7] != '-'){
 
             $checkBoxHtml = $checkBoxHtml . "<br>";
-            $checkBoxHtml = $checkBoxHtml . '<p>' . 'Course moodle id: ' .$data[$x]['id'] .'    ' .$data[$x]['code'].'    '. $data[$x]['idnumber']. '</p>';
+            $checkBoxHtml = $checkBoxHtml . '<p>' . '(' .$data[$x]['id'] .')' .'&emsp' .$data[$x]['code'].'&emsp'. $data[$x]['idnumber']. '</p>';
 
             $checkBoxHtml = $checkBoxHtml . '<input type="checkbox" name="formDoor[]" value="' .  $htmlid.
                 '" />' . 'midterm'. $courseGradeList[0] . ' '. ' '.$courseGradeList[1] .' '.$courseGradeList[2] .' '.$courseGradeList[3].' '
