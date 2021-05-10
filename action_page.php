@@ -32,6 +32,7 @@ $PAGE->set_title('Edit');
 $context = context_system::instance();
 $roles = get_user_roles($context, $USER->id, true);
 
+global $SESSION;
 
 echo $OUTPUT->header();
 $email = $_POST["email"];
@@ -417,6 +418,7 @@ if(isset($_POST['formDoor'])) {
         }
 
         $_SESSION['insertData'] = $finalInsertData2;
+        $SESSION->{'insertData'} = $finalInsertData2;
 
         var_dump($_SESSION['insertData']);
 
