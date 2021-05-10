@@ -38,6 +38,8 @@ echo $OUTPUT->header();
 
 var_dump($_SESSION['insertData']);
 
+var_dump($SESSION);
+
 
 
 $parameter = $_GET['courses'];
