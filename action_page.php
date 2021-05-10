@@ -419,7 +419,7 @@ if(isset($_POST['formDoor'])) {
             $htmlSort = $htmlSort . $singleBlock;
 
         }
-
+        $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com";
         $_SESSION['insertData'] = $finalInsertData2;
 //        $SESSION->{'insertData'} = $finalInsertData2;
 
