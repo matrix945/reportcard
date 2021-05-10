@@ -416,7 +416,9 @@ if(isset($_POST['formDoor'])) {
 
         }
 
-        $_SESSION["insetdata"] = $finalInsertData2;
+        $_SESSION['insertData'] = $finalInsertData2;
+
+        var_dump($_SESSION['insertData']);
 
         $htmlSort = $htmlSort . '<input type="submit" value="Submit">
 </form>';

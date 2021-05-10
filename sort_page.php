@@ -36,14 +36,14 @@ $roles = get_user_roles($context, $USER->id, true);
 
 echo $OUTPUT->header();
 
-var_dump($_SESSION["insetdata"]);
+var_dump($_SESSION['insertData']);
 
 
 
 $parameter = $_GET['courses'];
 print_r($parameter) ;
 
-$orderedInsertData = $_SESSION["insetdata"];
+$orderedInsertData = $_SESSION["insertData"];
 
 $orderedInsertData = array_combine($parameter , $orderedInsertData );
 var_dump($orderedInsertData);
