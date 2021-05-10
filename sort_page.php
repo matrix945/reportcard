@@ -37,7 +37,7 @@ $roles = get_user_roles($context, $USER->id, true);
 echo $OUTPUT->header();
 
 var_dump($_SESSION['insertData']);
-
+echo ("<br>");
 var_dump($SESSION);
 
 
