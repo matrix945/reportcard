@@ -39,13 +39,25 @@ $roles = get_user_roles($context, $USER->id, true);
 
 echo $OUTPUT->header();
 
+// return current Toronto time format 2021-04-04T13:35:48
+function getCurrentTime(): string
+{
+
+    $dtz = new DateTimeZone("America/Toronto");
+    $dt = new DateTime("now", $dtz);
+    //Stores time as "2021-04-04T13:35:48":
+    $currentTime = $dt->format("Y-m-d") . "T" . $dt->format("H:i:s");
+
+    if(DEBUG){
+        echo ("<br>");
+        var_dump($currentTime);
+        echo ("<br>");
+    }
+    return $currentTime;
+}
+
 var_dump($_SESSION['insertData']);
 echo ("<br>");
-echo ("<br>");
-echo ("<br>");
-//var_dump($SESSION);
-
-
 
 $parameter = $_GET['courses'];
 print_r($parameter) ;
@@ -115,9 +127,10 @@ if( ($orderedInsertData !==null) && ($parameter !== null) ){
         if(DEBUG){var_dump($_SESSION['reportCard_studentEmail']);}
         echo('<br>');
 
+        $current_time = getCurrentTime();
 
 //      WARNING: You can;t use fullname here because fullname may contain space! It causes issue when you pass it to shell
-        $filename = GENERATEFDFLOCATION .$_SESSION['reportCard_studentEmail'] . '.data.fdf' ;
+        $filename = GENERATEFDFLOCATION .$_SESSION['reportCard_studentEmail'] .$current_time. '.data.fdf' ;
         echo('<br>');
         if(DEBUG){var_dump($filename);}
         echo('<br>');
@@ -125,7 +138,8 @@ if( ($orderedInsertData !==null) && ($parameter !== null) ){
         fwrite($myfile, $filetext);
         fclose($myfile);
 
-        $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $filename . ' output /var/www/html/moodle/local/reportcard/repo/form_with_data.pdf';
+        $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $filename .
+            ' output /var/www/html/moodle/local/reportcard/repo/'.$_SESSION['reportCard_studentEmail'] .$current_time .'form_with_data.pdf';
         if(DEBUG){echo $command;}
         $msg = shell_exec($command);
         print_r($msg);
