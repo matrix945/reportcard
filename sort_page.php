@@ -35,6 +35,7 @@ $roles = get_user_roles($context, $USER->id, true);
 
 
 echo $OUTPUT->header();
+var_dump($_SESSION);
 var_dump($_SESSION["insetdata"]);
 print_r($_SESSION["insetdata"]);
 
