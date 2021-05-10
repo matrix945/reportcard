@@ -21,6 +21,9 @@
  */
 
 
+// Start the session
+session_start();
+
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->dirroot . '/local/reportcard/action_page.php');
 
@@ -390,8 +393,37 @@ if(isset($_POST['formDoor'])) {
 //        print_r($aDoor);
 
 //        var_dump($courseIDWithGardesList);
+
+        $htmlSort =  '<h1>The select element</h1>
+
+<p>Please rank your item.</p>
+
+<form action="/local/reportcard/sort_page.php">';
+
+
         for($i=0; $i < $N; $i++)
         {
+
+            $singleBlock = ' <label for="'. $courseIDWithGardesList[intval($aDoor[$i])][0].'">'. $courseIDWithGardesList[intval($aDoor[$i])][0] .'</label>
+  <select name="'. 'courses[]' .'"id="courses">';
+
+            for($k=0; $k < $N; $k++) {
+                $singleBlock = $singleBlock . '<option value="' . $k .'">'.$k.'</option>';
+            }
+            $singleBlock = $singleBlock. '  </select>
+  <br><br>';
+
+            $htmlSort = $htmlSort . $singleBlock;
+            echo $singleBlock;
+        }
+
+        $htmlSort = $htmlSort . '<input type="submit" value="Submit">
+</form>';
+
+
+
+        echo $htmlSort;
+
 
             array_push($finalInsertData,$courseIDWithGardesList[intval($aDoor[$i])]);
 //           echo($aDoor[$i] . " ");
@@ -420,6 +452,8 @@ if(isset($_POST['formDoor'])) {
                       14 => string '-' (length=1)
              *
              */
+
+            $_SESSION["insetData"] = $finalInsertData;
 
             if(count($finalInsertData[$i]) == 8){
                 if(DEBUG){echo "Replace fdf file now!";}
