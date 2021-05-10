@@ -20,7 +20,6 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
 // Start the session
 session_start();
 
@@ -393,37 +392,8 @@ if(isset($_POST['formDoor'])) {
 //        print_r($aDoor);
 
 //        var_dump($courseIDWithGardesList);
-
-        $htmlSort =  '<h1>The select element</h1>
-
-<p>Please rank your item.</p>
-
-<form action="/local/reportcard/sort_page.php">';
-
-
         for($i=0; $i < $N; $i++)
         {
-
-            $singleBlock = ' <label for="'. $courseIDWithGardesList[intval($aDoor[$i])][0].'">'. $courseIDWithGardesList[intval($aDoor[$i])][0] .'</label>
-  <select name="'. 'courses[]' .'"id="courses">';
-
-            for($k=0; $k < $N; $k++) {
-                $singleBlock = $singleBlock . '<option value="' . $k .'">'.$k.'</option>';
-            }
-            $singleBlock = $singleBlock. '  </select>
-  <br><br>';
-
-            $htmlSort = $htmlSort . $singleBlock;
-            echo $singleBlock;
-        }
-
-        $htmlSort = $htmlSort . '<input type="submit" value="Submit">
-</form>';
-
-
-
-        echo $htmlSort;
-
 
             array_push($finalInsertData,$courseIDWithGardesList[intval($aDoor[$i])]);
 //           echo($aDoor[$i] . " ");
@@ -432,28 +402,27 @@ if(isset($_POST['formDoor'])) {
             if(DEBUG){var_dump($finalInsertData);}
             echo('<br>');
 
+            $_SESSION["insetData"] = $finalInsertData;
 
             /**
              *     array (size=15)
-                      0 => string 'MHF4U' (length=5)
-                      1 => int 88
-                      2 => string 'woqu' (length=4)
-                      3 => string 'G' (length=1)
-                      4 => string 'N' (length=1)
-                      5 => string 'S' (length=1)
-                      6 => string 'G' (length=1)
-                      7 => string 'G' (length=1)
-                      8 => int 40
-                      9 => string 'paodekuaipaodekuai' (length=18)
-                      10 => string 'G' (length=1)
-                      11 => string 'G' (length=1)
-                      12 => string 'S' (length=1)
-                      13 => string 'N' (length=1)
-                      14 => string '-' (length=1)
+            0 => string 'MHF4U' (length=5)
+            1 => int 88
+            2 => string 'woqu' (length=4)
+            3 => string 'G' (length=1)
+            4 => string 'N' (length=1)
+            5 => string 'S' (length=1)
+            6 => string 'G' (length=1)
+            7 => string 'G' (length=1)
+            8 => int 40
+            9 => string 'paodekuaipaodekuai' (length=18)
+            10 => string 'G' (length=1)
+            11 => string 'G' (length=1)
+            12 => string 'S' (length=1)
+            13 => string 'N' (length=1)
+            14 => string '-' (length=1)
              *
              */
-
-            $_SESSION["insetData"] = $finalInsertData;
 
             if(count($finalInsertData[$i]) == 8){
                 if(DEBUG){echo "Replace fdf file now!";}
@@ -504,7 +473,6 @@ if(isset($_POST['formDoor'])) {
 
 
 ?>
-
 
 
 
