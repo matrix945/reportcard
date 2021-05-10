@@ -342,7 +342,7 @@ if(DEBUG){var_dump($obj);}
 if (checkErrorOrEmpty($obj)){
     $studentId = $obj[0]-> {'id'};
     $_SESSION['reportCard_studentId'] = $obj[0]-> {'id'};
-    $_SESSION['reportCard_studentEmail'] = $_POST["email"];
+    $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com";
 }
 
 
