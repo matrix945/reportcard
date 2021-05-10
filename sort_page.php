@@ -27,6 +27,8 @@
 require_once(__DIR__ . '/../../config.php');
 //require_once($CFG->dirroot . '/local/reportcard/action_page.php');
 define('GENERATEFDFLOCATION' , $CFG->dirroot.'/local/reportcard/repo/' );  // fdf file location
+define('FDFLOCATION' , $CFG->dirroot.'/local/reportcard/data.fdf' );  // fdf file location
+define('DEBUG' , true); //debug mode
 
 $PAGE->set_url(new moodle_url('/local/reportcard/sort_page.php'));
 $PAGE->set_context(\context_system::instance());
@@ -54,6 +56,22 @@ $orderedInsertData = array_combine($parameter , $orderedInsertData );
 var_dump($orderedInsertData);
 
 if( ($orderedInsertData !==null) && ($parameter !== null) ){
+
+    $filename = FDFLOCATION;
+    $file = fopen( $filename, "r" );
+
+    if( $file == false ) {
+        echo ( "Error in opening file" );
+        exit();
+    }
+
+    $filesize = filesize( $filename );
+    $filetext = fread( $file, $filesize );
+//            echo ( "File size : $filesize bytes" );
+//            echo ( "<pre>$filetext</pre>" );
+    if(DEBUG){var_dump($filetext);}
+    fclose( $file );
+
             for($i=0; $i < count($orderedInsertData); $i++)
         {
 
@@ -77,15 +95,15 @@ if( ($orderedInsertData !==null) && ($parameter !== null) ){
              *
              */
 
-            if(count($finalInsertData[$i]) == 8){
+            if(count($orderedInsertData[$i]) == 8){
                 if(DEBUG){echo "Replace fdf file now!";}
-                $filetext = str_replace( ("/V ()". chr(10)."/T (CourseCode" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][0].")". chr(10)."/T (CourseCode" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidMarkMed" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][1].")". chr(10)."/T (MidMarkMed" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidRes" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][3].")". chr(10)."/T (MidRes" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidOrg" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][4].")". chr(10)."/T (MidOrg" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidInd" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][5].")". chr(10)."/T (MidInd" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidCol" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][6].")". chr(10)."/T (MidCol" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidIni" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][7].")". chr(10)."/T (MidIni" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (CourseCode" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][0].")". chr(10)."/T (CourseCode" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidMarkMed" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][1].")". chr(10)."/T (MidMarkMed" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidRes" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][3].")". chr(10)."/T (MidRes" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidOrg" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][4].")". chr(10)."/T (MidOrg" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidInd" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][5].")". chr(10)."/T (MidInd" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidCol" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][6].")". chr(10)."/T (MidCol" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidIni" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][7].")". chr(10)."/T (MidIni" . ($i+1) . ")")),$filetext);
 
             }
 
