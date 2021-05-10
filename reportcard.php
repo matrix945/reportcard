@@ -27,7 +27,7 @@ global $DB;
 $PAGE->set_url(new moodle_url('/local/reportcard/reportcard.php'));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title('reportcard');
-require_once($CFG->libdir.'/adminlib.php');
+require_once($CFG->libdir . '/adminlib.php');
 
 //manage admin Authority
 admin_externalpage_setup('reportcard_conn_synch_settings');

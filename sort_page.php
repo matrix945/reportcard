@@ -26,9 +26,9 @@
 
 require_once(__DIR__ . '/../../config.php');
 //require_once($CFG->dirroot . '/local/reportcard/action_page.php');
-define('GENERATEFDFLOCATION' , $CFG->dirroot.'/local/reportcard/repo/' );  // fdf file location
-define('FDFLOCATION' , $CFG->dirroot.'/local/reportcard/data.fdf' );  // fdf file location
-define('DEBUG' , true); //debug mode
+define('GENERATEFDFLOCATION', $CFG->dirroot . '/local/reportcard/repo/');  // fdf file location
+define('FDFLOCATION', $CFG->dirroot . '/local/reportcard/data.fdf');  // fdf file location
+define('DEBUG', true); //debug mode
 
 $PAGE->set_url(new moodle_url('/local/reportcard/sort_page.php'));
 $PAGE->set_context(\context_system::instance());
@@ -48,103 +48,113 @@ function getCurrentTime(): string
     //Stores time as "2021-04-04T13:35:48":
     $currentTime = $dt->format("Y-m-d") . "T" . $dt->format("H:i:s");
 
-    if(DEBUG){
-        echo ("<br>");
+    if (DEBUG) {
+        echo("<br>");
         var_dump($currentTime);
-        echo ("<br>");
+        echo("<br>");
     }
     return $currentTime;
 }
 
 var_dump($_SESSION['insertData']);
-echo ("<br>");
+echo("<br>");
 
 $parameter = $_GET['courses'];
-print_r($parameter) ;
+print_r($parameter);
 
 $orderedInsertData = $_SESSION["insertData"];
 
-$orderedInsertData = array_combine($parameter , $orderedInsertData );
+$orderedInsertData = array_combine($parameter, $orderedInsertData);
 var_dump($orderedInsertData);
 
-if( ($orderedInsertData !==null) && ($parameter !== null) ){
+if (($orderedInsertData !== null) && ($parameter !== null)) {
 
     $filename = FDFLOCATION;
-    $file = fopen( $filename, "r" );
+    $file = fopen($filename, "r");
 
-    if( $file == false ) {
-        echo ( "Error in opening file" );
+    if ($file == false) {
+        echo("Error in opening file");
         exit();
     }
 
-    $filesize = filesize( $filename );
-    $filetext = fread( $file, $filesize );
+    $filesize = filesize($filename);
+    $filetext = fread($file, $filesize);
 //            echo ( "File size : $filesize bytes" );
 //            echo ( "<pre>$filetext</pre>" );
-    if(DEBUG){var_dump($filetext);}
-    fclose( $file );
+    if (DEBUG) {
+        var_dump($filetext);
+    }
+    fclose($file);
 
-            for($i=0; $i < count($orderedInsertData); $i++)
-        {
+    for ($i = 0; $i < count($orderedInsertData); $i++) {
 
-            /**
-             *     array (size=15)
-            0 => string 'MHF4U' (length=5)
-            1 => int 88
-            2 => string 'woqu' (length=4)
-            3 => string 'G' (length=1)
-            4 => string 'N' (length=1)
-            5 => string 'S' (length=1)
-            6 => string 'G' (length=1)
-            7 => string 'G' (length=1)
-            8 => int 40
-            9 => string 'paodekuaipaodekuai' (length=18)
-            10 => string 'G' (length=1)
-            11 => string 'G' (length=1)
-            12 => string 'S' (length=1)
-            13 => string 'N' (length=1)
-            14 => string '-' (length=1)
-             *
-             */
+        /**
+         *     array (size=15)
+         * 0 => string 'MHF4U' (length=5)
+         * 1 => int 88
+         * 2 => string 'woqu' (length=4)
+         * 3 => string 'G' (length=1)
+         * 4 => string 'N' (length=1)
+         * 5 => string 'S' (length=1)
+         * 6 => string 'G' (length=1)
+         * 7 => string 'G' (length=1)
+         * 8 => int 40
+         * 9 => string 'paodekuaipaodekuai' (length=18)
+         * 10 => string 'G' (length=1)
+         * 11 => string 'G' (length=1)
+         * 12 => string 'S' (length=1)
+         * 13 => string 'N' (length=1)
+         * 14 => string '-' (length=1)
+         *
+         */
 
-            if(count($orderedInsertData[$i]) == 8){
-                if(DEBUG){echo "Replace fdf file now!";}
-                $filetext = str_replace( ("/V ()". chr(10)."/T (CourseCode" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][0].")". chr(10)."/T (CourseCode" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidMarkMed" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][1].")". chr(10)."/T (MidMarkMed" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidRes" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][3].")". chr(10)."/T (MidRes" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidOrg" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][4].")". chr(10)."/T (MidOrg" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidInd" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][5].")". chr(10)."/T (MidInd" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidCol" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][6].")". chr(10)."/T (MidCol" . ($i+1) . ")")),$filetext);
-                $filetext = str_replace( ("/V ()". chr(10)."/T (MidIni" . ($i+1) . ")") ,(("/V (".$orderedInsertData[$i][7].")". chr(10)."/T (MidIni" . ($i+1) . ")")),$filetext);
-
+        if (count($orderedInsertData[$i]) == 8) {
+            if (DEBUG) {
+                echo "Replace fdf file now!";
             }
-
-
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (CourseCode" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][0] . ")" . chr(10) . "/T (CourseCode" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (MidMarkMed" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][1] . ")" . chr(10) . "/T (MidMarkMed" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (MidRes" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][3] . ")" . chr(10) . "/T (MidRes" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (MidOrg" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][4] . ")" . chr(10) . "/T (MidOrg" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (MidInd" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][5] . ")" . chr(10) . "/T (MidInd" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (MidCol" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][6] . ")" . chr(10) . "/T (MidCol" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (MidIni" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][7] . ")" . chr(10) . "/T (MidIni" . ($i + 1) . ")")), $filetext);
 
         }
-        echo('<br>');
-        if(DEBUG){var_dump($filetext);}
-        if(DEBUG){var_dump($_SESSION['reportCard_studentEmail']);}
-        echo('<br>');
 
-        $current_time = getCurrentTime();
+
+    }
+    echo('<br>');
+    if (DEBUG) {
+        var_dump($filetext);
+    }
+    if (DEBUG) {
+        var_dump($_SESSION['reportCard_studentEmail']);
+    }
+    echo('<br>');
+
+    $current_time = getCurrentTime();
 
 //      WARNING: You can;t use fullname here because fullname may contain space! It causes issue when you pass it to shell
-        $filename = GENERATEFDFLOCATION .$_SESSION['reportCard_studentEmail'] .$current_time. '.data.fdf' ;
-        echo('<br>');
-        if(DEBUG){var_dump($filename);}
-        echo('<br>');
-        $myfile = fopen($filename, "w") or die("Unable to open file!");
-        fwrite($myfile, $filetext);
-        fclose($myfile);
+    $filename = GENERATEFDFLOCATION . $_SESSION['reportCard_studentEmail'] . $current_time . '.data.fdf';
+    echo('<br>');
+    if (DEBUG) {
+        var_dump($filename);
+    }
+    echo('<br>');
+    $myfile = fopen($filename, "w") or die("Unable to open file!");
+    fwrite($myfile, $filetext);
+    fclose($myfile);
 
-        $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $filename .
-            ' output /var/www/html/moodle/local/reportcard/repo/'.$_SESSION['reportCard_studentEmail'] .$current_time .'form_with_data.pdf';
-        if(DEBUG){echo $command;}
-        $msg = shell_exec($command);
-        print_r($msg);
+    $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $filename .
+        ' output /var/www/html/moodle/local/reportcard/repo/' . $_SESSION['reportCard_studentEmail'] . $current_time . 'form_with_data.pdf';
+    if (DEBUG) {
+        echo $command;
+    }
+    $msg = shell_exec($command);
+    print_r($msg);
 
-        }
+}
 
 echo 'hello?';
 
