@@ -38,7 +38,9 @@ echo $OUTPUT->header();
 
 var_dump($_SESSION['insertData']);
 echo ("<br>");
-var_dump($SESSION);
+echo ("<br>");
+echo ("<br>");
+//var_dump($SESSION);
 
 
 
