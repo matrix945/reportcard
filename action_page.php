@@ -20,8 +20,6 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-//// Start the session
-//session_start();
 
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->dirroot . '/local/reportcard/action_page.php');
@@ -343,6 +341,8 @@ if(DEBUG){var_dump($obj);}
 //echo $obj[0]->{"id"};
 if (checkErrorOrEmpty($obj)){
     $studentId = $obj[0]-> {'id'};
+    $_SESSION['reportCard_studentId'] = $obj[0]-> {'id'};
+    $_SESSION['reportCard_studentEmail'] = $email;
 }
 
 

@@ -52,15 +52,66 @@ $orderedInsertData = $_SESSION["insertData"];
 $orderedInsertData = array_combine($parameter , $orderedInsertData );
 var_dump($orderedInsertData);
 
+if( ($orderedInsertData !==null) && ($parameter !== null) ){
+            for($i=0; $i < count($orderedInsertData); $i++)
+        {
+
+            /**
+             *     array (size=15)
+            0 => string 'MHF4U' (length=5)
+            1 => int 88
+            2 => string 'woqu' (length=4)
+            3 => string 'G' (length=1)
+            4 => string 'N' (length=1)
+            5 => string 'S' (length=1)
+            6 => string 'G' (length=1)
+            7 => string 'G' (length=1)
+            8 => int 40
+            9 => string 'paodekuaipaodekuai' (length=18)
+            10 => string 'G' (length=1)
+            11 => string 'G' (length=1)
+            12 => string 'S' (length=1)
+            13 => string 'N' (length=1)
+            14 => string '-' (length=1)
+             *
+             */
+
+            if(count($finalInsertData[$i]) == 8){
+                if(DEBUG){echo "Replace fdf file now!";}
+                $filetext = str_replace( ("/V ()". chr(10)."/T (CourseCode" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][0].")". chr(10)."/T (CourseCode" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidMarkMed" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][1].")". chr(10)."/T (MidMarkMed" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidRes" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][3].")". chr(10)."/T (MidRes" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidOrg" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][4].")". chr(10)."/T (MidOrg" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidInd" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][5].")". chr(10)."/T (MidInd" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidCol" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][6].")". chr(10)."/T (MidCol" . ($i+1) . ")")),$filetext);
+                $filetext = str_replace( ("/V ()". chr(10)."/T (MidIni" . ($i+1) . ")") ,(("/V (".$finalInsertData[$i][7].")". chr(10)."/T (MidIni" . ($i+1) . ")")),$filetext);
+
+            }
 
 
-//array(2) { [0]=> string(10) "coursess=1" [1]=> string(10) "coursess=0" }
-//$str = str_replace("coursess=","&",$str);
-//echo $str;
-//echo ('<br>');
-//var_dump (explode("&",$str));
+
+        }
+        echo('<br>');
+        if(DEBUG){var_dump($filetext);}
+        if(DEBUG){var_dump($_SESSION['reportCard_studentEmail']);}
+        echo('<br>');
 
 
+//      WARNING: You can;t use fullname here because fullname may contain space! It causes issue when you pass it to shell
+        $filename = GENERATEFDFLOCATION .$_SESSION['reportCard_studentEmail'] . '.data.fdf' ;
+        echo('<br>');
+        if(DEBUG){var_dump($filename);}
+        echo('<br>');
+        $myfile = fopen($filename, "w") or die("Unable to open file!");
+        fwrite($myfile, $filetext);
+        fclose($myfile);
+
+        $command = 'pdftk /var/www/html/moodle/local/reportcard/repo/report_card_template.pdf fill_form ' . $filename . ' output /var/www/html/moodle/local/reportcard/repo/form_with_data.pdf';
+        if(DEBUG){echo $command;}
+        $msg = shell_exec($command);
+        print_r($msg);
+
+        }
 
 echo 'hello?';
 
