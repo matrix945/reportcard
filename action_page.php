@@ -389,7 +389,7 @@ if(isset($_POST['formDoor'])) {
 
         if(DEBUG){echo("You selected $N choice (s): ");}
         echo('<br>');
-
+        $finalInsertData2 = array();
         $htmlSort =  '<h1>The select element</h1>
 <p>Please rank your item.</p>
 <form action="/local/reportcard/sort_page.php">';
