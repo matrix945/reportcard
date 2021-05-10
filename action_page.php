@@ -282,7 +282,8 @@ function htmlCheckBoxMaker($userid , $data){
 //      This student has final grades
         if ($courseGradeList[7] != '-'){
 
-            $checkBoxHtml = $checkBoxHtml . '<p>' .$data[$x]['id'] .$data[$x]['code']. $data[$x]['idnumber']. '</p>';
+            $checkBoxHtml = $checkBoxHtml . "<br>";
+            $checkBoxHtml = $checkBoxHtml . '<p>' . 'Course moodle id: ' .$data[$x]['id'] .'    ' .$data[$x]['code'].'    '. $data[$x]['idnumber']. '</p>';
 
             $checkBoxHtml = $checkBoxHtml . '<input type="checkbox" name="formDoor[]" value="' .  $htmlid.
                 '" />' . 'midterm'. $courseGradeList[0] . ' '. ' '.$courseGradeList[1] .' '.$courseGradeList[2] .' '.$courseGradeList[3].' '
