@@ -26,6 +26,7 @@
 
 require_once(__DIR__ . '/../../config.php');
 //require_once($CFG->dirroot . '/local/reportcard/action_page.php');
+define('GENERATEFDFLOCATION' , $CFG->dirroot.'/local/reportcard/repo/' );  // fdf file location
 
 $PAGE->set_url(new moodle_url('/local/reportcard/sort_page.php'));
 $PAGE->set_context(\context_system::instance());
