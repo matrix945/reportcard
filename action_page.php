@@ -279,9 +279,11 @@ function htmlCheckBoxMaker($userid , $data){
         array_push($singleCourseData,$courseGradeList[13]);
         array_push($courseIDWithGardesList ,$singleCourseData );
 
-
 //      This student has final grades
         if ($courseGradeList[7] != '-'){
+
+            $checkBoxHtml = $checkBoxHtml . '<p>' .$data[$x]['id'] .$data[$x]['code']. $data[$x]['idnumber']. '</p>';
+
             $checkBoxHtml = $checkBoxHtml . '<input type="checkbox" name="formDoor[]" value="' .  $htmlid.
                 '" />' . 'midterm'. $courseGradeList[0] . ' '. ' '.$courseGradeList[1] .' '.$courseGradeList[2] .' '.$courseGradeList[3].' '
                 .$courseGradeList[4] .' '.$courseGradeList[5] .' '.$courseGradeList[6] . '<br />';
