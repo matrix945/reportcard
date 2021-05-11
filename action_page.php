@@ -36,6 +36,7 @@ echo $OUTPUT->header();
 $email = $_POST["email"];
 
 echo "query email: " . $_POST["email"];
+$_SESSION['student_email'] = $_POST["email"];
 
 
 /**
@@ -350,7 +351,9 @@ function htmlCheckBoxMaker($userid, $data)
 
 
 $studentId = -1;
-$data = validateUserEmail(URL, "2121373869@qq.com");
+
+
+$data = validateUserEmail(URL, $_SESSION['student_email']);
 //echo $data;
 $obj = json_decode($data);
 if (DEBUG) {
