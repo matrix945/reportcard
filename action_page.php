@@ -387,10 +387,10 @@ $courseList = parseGetEnrolledCourseByStuId($studentId);
 
 //parseCourseArrayIntoCheckBoxForm($courseList);
 
+//$courseGradeList = fetchCourseGradeBasedOnCourseId(39, 8);
+//parseStudentGrade($courseGradeList);
 
-$courseGradeList = fetchCourseGradeBasedOnCourseId(39, 8);
-parseStudentGrade($courseGradeList);
-$courseIDWithGardesList = htmlCheckBoxMaker(39, $courseList);
+$courseIDWithGardesList = htmlCheckBoxMaker($_SESSION['reportCard_studentId'], $courseList);
 $finalInsertData = array();
 
 /**
