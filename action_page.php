@@ -364,9 +364,17 @@ if (checkErrorOrEmpty($obj)) {
     $studentId = $obj[0]->{'id'};
     $_SESSION['reportCard_studentId'] = $obj[0]->{'id'};
     $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com";
-    echo("<br>");
-    var_dump($_SESSION['reportCard_studentEmail']);
-    echo("<br>");
+
+    if (DEBUG) {
+        echo ('<br>');
+        echo ("check error or empty successfully");
+        echo ('<br>');
+        echo $_SESSION['student_email'];
+        echo("<br>");
+        var_dump($_SESSION['reportCard_studentEmail']);
+        echo("<br>");
+    }
+
 }
 
 
