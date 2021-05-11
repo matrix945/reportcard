@@ -364,7 +364,7 @@ if (DEBUG) {
     echo ('<br>');
 }
 //echo $obj[0]->{"id"};
-if (checkErrorOrEmpty($obj)) {
+if (!checkErrorOrEmpty($obj)) {
     $studentId = $obj[0]->{'id'};
     $_SESSION['reportCard_studentId'] = $obj[0]->{'id'};
     $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com";
