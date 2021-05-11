@@ -357,7 +357,11 @@ $data = validateUserEmail(URL, $_SESSION['student_email']);
 //echo $data;
 $obj = json_decode($data);
 if (DEBUG) {
+    echo ('<br>');
+    echo ("echo user information");
+    echo ('<br>');
     var_dump($obj);
+    echo ('<br>');
 }
 //echo $obj[0]->{"id"};
 if (checkErrorOrEmpty($obj)) {
