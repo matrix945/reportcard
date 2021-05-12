@@ -211,7 +211,7 @@ function htmlCheckBoxMaker($userid, $data)
         var_dump($data);
         echo("<br>");
     }
-    
+
 
     $CourseNumber = count($data);
     $checkBoxHtml = '<form action="/local/reportcard/action_page.php" method="post"> Student Course List:<br />';
