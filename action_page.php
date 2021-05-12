@@ -366,7 +366,6 @@ $studentId = -1;
 
 
 $data = validateUserEmail(URL, $_SESSION['student_email']);
-//echo $data;
 $obj = json_decode($data);
 if (DEBUG) {
     echo ('<br>');
@@ -384,6 +383,8 @@ if (!checkErrorOrEmpty($obj)) {
     if (DEBUG) {
         echo ('<br>');
         echo ("check error or empty successfully");
+        echo ('<br>');
+        echo ($_SESSION['reportCard_studentId']);
         echo ('<br>');
         echo $_SESSION['student_email'];
         echo("<br>");
