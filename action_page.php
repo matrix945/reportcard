@@ -78,7 +78,13 @@ function apiCall($url, $post_data)
 
 function validateUserEmail($url, $email)
 {
-//    echo $_POST[TOKEN];
+    if(DEBUG){
+        echo ("<br>");
+        echo ("try to get email from api call");
+        echo ($email);
+        echo ("<br>");
+    }
+    
     $post_data = array("field" => "email", "wsfunction" => "core_user_get_users_by_field", "wstoken" => TOKEN, "values[0]" => $email);
     $result = apiCall($url, $post_data);
     return $result;
