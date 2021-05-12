@@ -390,6 +390,8 @@ if (!checkErrorOrEmpty($obj)) {
         echo("<br>");
         var_dump($_SESSION['reportCard_studentEmail']);
         echo("<br>");
+        echo ($studentId);
+        echo("<br>");
     }
 
 }
