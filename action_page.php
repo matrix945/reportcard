@@ -36,7 +36,11 @@ echo $OUTPUT->header();
 $email = $_POST["email"];
 
 echo "query email: " . $_POST["email"];
-$_SESSION['student_email'] = $_POST["email"];
+
+//FIXME: no need if we have second page as jump
+if($_POST["email"] !== null){
+    $_SESSION['student_email'] = $_POST["email"];
+}
 
 
 /**
