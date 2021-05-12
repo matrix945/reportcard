@@ -327,7 +327,7 @@ function htmlCheckBoxMaker($userid, $data)
 
             $htmlid = $htmlid + 1;
 
-            $checkBoxHtml = $checkBoxHtml . '<input type="checkbox" name="formDoor[]" value="' . $htmlid .
+            $checkBoxHtml = $checkBoxHtml . '<input type="checkbox" disabled="true" name="formDoor[]" value="' . $htmlid .
                 '" />' . 'final' . $courseGradeList[7] . ' ' . ' ' . $courseGradeList[8] . ' ' . $courseGradeList[9] . ' ' . $courseGradeList[10] . ' '
                 . $courseGradeList[11] . ' ' . $courseGradeList[12] . ' ' . $courseGradeList[13] . '<br />';
             $htmlid = $htmlid + 1;
