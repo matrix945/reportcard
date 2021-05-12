@@ -201,6 +201,18 @@ function htmlCheckBoxMaker($userid, $data)
     $courseIDWithGardesList = array();
     $singleCourseData = array();
 
+    if (DEBUG) {
+        echo("<br>");
+        echo ("htmlCheckBoxMaker read userid ");
+        var_dump($userid);
+        echo("<br>");
+        echo ("htmlCheckBoxMaker data is ");
+        echo("<br>");
+        var_dump($data);
+        echo("<br>");
+    }
+    
+
     $CourseNumber = count($data);
     $checkBoxHtml = '<form action="/local/reportcard/action_page.php" method="post"> Student Course List:<br />';
     $htmlid = 0;
@@ -367,7 +379,7 @@ if (DEBUG) {
 if (!checkErrorOrEmpty($obj)) {
     $studentId = $obj[0]->{'id'};
     $_SESSION['reportCard_studentId'] = $obj[0]->{'id'};
-    $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com";
+//    $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com"; // test propose
 
     if (DEBUG) {
         echo ('<br>');
@@ -453,7 +465,7 @@ if (isset($_POST['formDoor'])) {
             $htmlSort = $htmlSort . $singleBlock;
 
         }
-        $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com";
+//        $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com"; // test purpose
         $_SESSION['insertData'] = $finalInsertData2;
 //        $SESSION->{'insertData'} = $finalInsertData2;
 
