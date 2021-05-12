@@ -133,12 +133,12 @@ if (($orderedInsertData !== null) && ($parameter !== null)) {
             $filetext = str_replace(("/V ()" . chr(10) . "/T (MidCol" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][6] . ")" . chr(10) . "/T (MidCol" . ($i + 1) . ")")), $filetext);
             $filetext = str_replace(("/V ()" . chr(10) . "/T (MidIni" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][7] . ")" . chr(10) . "/T (MidIni" . ($i + 1) . ")")), $filetext);
 
-            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinMarkMed" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][8] . ")" . chr(10) . "/T (MidMarkMed" . ($i + 1) . ")")), $filetext);
-            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinRes" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][10] . ")" . chr(10) . "/T (MidRes" . ($i + 1) . ")")), $filetext);
-            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinOrg" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][11] . ")" . chr(10) . "/T (MidOrg" . ($i + 1) . ")")), $filetext);
-            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinInd" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][12] . ")" . chr(10) . "/T (MidInd" . ($i + 1) . ")")), $filetext);
-            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinCol" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][13] . ")" . chr(10) . "/T (MidCol" . ($i + 1) . ")")), $filetext);
-            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinIni" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][14] . ")" . chr(10) . "/T (MidIni" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinMarkMed" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][8] . ")" . chr(10) . "/T (FinMarkMed" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinRes" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][10] . ")" . chr(10) . "/T (FinRes" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinOrg" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][11] . ")" . chr(10) . "/T (FinOrg" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinInd" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][12] . ")" . chr(10) . "/T (FinInd" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinCol" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][13] . ")" . chr(10) . "/T (FinCol" . ($i + 1) . ")")), $filetext);
+            $filetext = str_replace(("/V ()" . chr(10) . "/T (FinIni" . ($i + 1) . ")"), (("/V (" . $orderedInsertData[$i][14] . ")" . chr(10) . "/T (FinIni" . ($i + 1) . ")")), $filetext);
 
         }
 
