@@ -84,7 +84,7 @@ function validateUserEmail($url, $email)
         echo ($email);
         echo ("<br>");
     }
-    
+
     $post_data = array("field" => "email", "wsfunction" => "core_user_get_users_by_field", "wstoken" => TOKEN, "values[0]" => $email);
     $result = apiCall($url, $post_data);
     return $result;
@@ -384,7 +384,7 @@ if (DEBUG) {
 if (!checkErrorOrEmpty($obj)) {
     $studentId = $obj[0]->{'id'};
     $_SESSION['reportCard_studentId'] = $obj[0]->{'id'};
-//    $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com"; // test propose
+//    $_SESSION['reportCard_studentEmail'] = "2121373869@qq.com"; // test purpose
 
     if (DEBUG) {
         echo ('<br>');
@@ -392,9 +392,10 @@ if (!checkErrorOrEmpty($obj)) {
         echo ('<br>');
         echo ($_SESSION['reportCard_studentId']);
         echo ('<br>');
+        echo ("session email");
         echo $_SESSION['student_email'];
         echo("<br>");
-        var_dump($_SESSION['reportCard_studentEmail']);
+//        var_dump($_SESSION['reportCard_studentEmail']); test purpose
         echo("<br>");
         echo ($studentId);
         echo("<br>");
